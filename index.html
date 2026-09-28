@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Palace — Rebel Focus Timer</title>
+  <meta name="description" content="A Persona 5-inspired Pomodoro timer. Infiltrate the Palace, secure the treasure — one focus session at a time.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="halftone-bg" aria-hidden="true"></div>
+
+  <!-- ======= HEADER ======= -->
+  <header class="masthead">
+    <div class="burst logo-burst" aria-hidden="true"><span>PP</span></div>
+    <div class="masthead-text">
+      <h1 class="game-title">POMODORO <span class="red">PALACE</span></h1>
+      <p class="tagline">Infiltrate the Palace. Secure the treasure. No distractions.</p>
+    </div>
+    <div class="streak-box">
+      <div class="streak-num" id="streakNum">0</div>
+      <div class="streak-label">DAY<br>STREAK</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ======= TIMER ======= -->
+    <section class="panel timer-panel">
+      <div class="mode-tabs" role="tablist" aria-label="Mode timer">
+        <button class="chip mode-chip active" data-mode="focus">FOCUS</button>
+        <button class="chip mode-chip" data-mode="short">SHORT BREAK</button>
+        <button class="chip mode-chip" data-mode="long">LONG BREAK</button>
+      </div>
+
+      <p class="flavor-line" id="flavorLine">The Palace awaits, rebel. Start your infiltration.</p>
+
+      <div class="timer-ring">
+        <div class="timer-display" id="timerDisplay">25:00</div>
+        <div class="timer-mode-label" id="timerModeLabel">FOCUS</div>
+      </div>
+
+      <div class="controls">
+        <button id="btnStart" class="btn-main">START</button>
+        <button id="btnReset" class="btn-ghost">RESET</button>
+      </div>
+
+      <div class="cycle">
+        <span class="cycle-label">PALACE PROGRESS</span>
+        <div class="dots" id="cycleDots" aria-label="Progres siklus fokus"></div>
+      </div>
+    </section>
+
+    <div class="board">
+      <!-- ======= STATS ======= -->
+      <section class="panel">
+        <h2 class="section-title"><span>TODAY'S HEIST</span></h2>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-num" id="statSessions">0</div>
+            <div class="stat-label">FOCUS SESSIONS</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="statMinutes">0</div>
+            <div class="stat-label">FOCUS MINUTES</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="statTotal">0</div>
+            <div class="stat-label">ALL-TIME SESSIONS</div>
+          </div>
+        </div>
+
+        <h2 class="section-title"><span>LAST 7 DAYS</span></h2>
+        <div class="week-chart" id="weekChart"></div>
+      </section>
+
+      <!-- ======= SETTINGS ======= -->
+      <aside class="panel">
+        <h2 class="section-title"><span>PLAN THE HEIST</span></h2>
+        <form id="settingsForm" class="settings-form">
+          <label>
+            Focus (min)
+            <input type="number" id="setFocus" min="1" max="180" value="25">
+          </label>
+          <label>
+            Short break (min)
+            <input type="number" id="setShort" min="1" max="60" value="5">
+          </label>
+          <label>
+            Long break (min)
+            <input type="number" id="setLong" min="1" max="90" value="15">
+          </label>
+          <label class="check-label">
+            <input type="checkbox" id="setAuto">
+            Auto-start next session
+          </label>
+          <button type="submit" class="btn-add">SAVE PLAN</button>
+        </form>
+        <button id="btnWipe" class="btn-danger">ERASE ALL DATA</button>
+        <p class="hint">Data tersimpan lokal di browser (localStorage). Tanpa akun, tanpa backend.</p>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      <p>POMODORO PALACE &mdash; a fan-inspired project. Not affiliated with ATLUS/SEGA.</p>
+    </footer>
+  </main>
+
+  <!-- ======= TREASURE FLASH ======= -->
+  <div id="flash" class="flash" aria-hidden="true">
+    <div class="burst flash-burst"><span id="flashText">TREASURE<br>SECURED!</span></div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
